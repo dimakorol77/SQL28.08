@@ -1,0 +1,29 @@
+select * from orders
+where month (odate)= 6;
+-- ///////////////////////////////////
+-- //////////////////////////////////
+select * from orders
+where odate between '2022-04-10' and '2022-05-10';
+-- /////////////////////////////////////////
+-- /////////////////////////////////////////
+select count(*) as NumberOfOrders
+from orders
+where month (odate) = 3;
+-- //////////////////////////////////////
+-- //////////////////////////////////////
+select avg(amt) as AVGamount
+from orders
+where month(odate) =3;
+-- ///////////////////////////////////
+-- //////////////////////////////////
+select min(rating) as minimumRating
+from customers
+join orders
+on customers.cust_id=orders.cust_id
+where month (odate) = 4 and year (odate) = 2022;
+-- ////////////////////////////////////////////
+-- ////////////////////////////////////////////
+SELECT sell_id, MAX(amt) AS maxAmount
+FROM orders
+WHERE odate BETWEEN '2022-03-01' AND '2022-05-01'
+GROUP BY sell_id;
